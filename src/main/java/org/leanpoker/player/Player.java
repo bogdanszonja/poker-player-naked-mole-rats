@@ -10,15 +10,16 @@ import java.util.Random;
 
 public class Player {
 
-    static final String VERSION = "1.1";
+    static final String VERSION = "1.2";
 
     public static int betRequest(JsonElement request) {
 
         JsonObject jsonObject = request.getAsJsonObject();
 
-//        int money = jsonObject.get("stack").getAsInt();
-//        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA: " + money);
         Random random = new Random();
+        JsonArray players = jsonObject.get("players").getAsJsonArray();
+        int stack = players.get(4).getAsInt();
+        System.out.println("stack " + stack);
 
         return random.nextInt(500);
     }
