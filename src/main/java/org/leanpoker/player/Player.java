@@ -33,7 +33,7 @@ public class Player {
                 String CommunityCardSuit = communityCardsJson.get(i).getAsJsonObject().get("suit").getAsString();
                 communityCards.add(new Card(CommunityCardSuit, CommunityCardRank));
             }
-            if (firstCard.getValue() > 11 || secondCard.getValue() > 11 || firstCard.pairInHand(secondCard)) {
+            if (firstCard.getValue() > 11 || secondCard.getValue() > 11 || firstCard.pairInHand(secondCard) && communityCards.size() == 0) {
                 if (currentBuyIn > 800) {
                     return 0;
                 }
