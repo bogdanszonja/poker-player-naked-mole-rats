@@ -32,6 +32,8 @@ public class Player {
             System.err.println("round = " + communityCards.size());
             if (communityCards.size() == 0) {
                 return jsonObject.get("current_buy_in").getAsInt();
+            } else if (firstCardRank.equals(secondCardRank)) {
+                return stack/2;
             }
             String firstCommunityCard = communityCards.get(0).getAsJsonObject().get("rank").getAsString();
             return stack;
