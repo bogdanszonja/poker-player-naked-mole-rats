@@ -64,7 +64,7 @@ public class Player {
                     if (Combinations.is3OfAKind(myCardList, communityCards)) {
                         return currentBuyIn + 350;
                     }
-                    return currentBuyIn;
+                    return 0;
                 } else {
                     if (Combinations.morePairAt3Cards(myCardList, communityCards)) {
                         return currentBuyIn + 350;
@@ -72,7 +72,7 @@ public class Player {
                     if (Combinations.is3OfAKind(myCardList, communityCards)) {
                         return currentBuyIn + 380;
                     }
-                    return currentBuyIn;
+                    return 0;
                 }
 
             }
