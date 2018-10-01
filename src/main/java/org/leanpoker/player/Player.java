@@ -72,7 +72,7 @@ public class Player {
                         return currentBuyIn + 310;
                     }
                     if (Combinations.is3OfAKind(myCardList, communityCards)) {
-                        return stack - 500;
+                        return currentBuyIn + 350;
                     }
                     if (Combinations.isTheSameColor(myCardList, communityCards)) {
                         return stack;
@@ -89,7 +89,7 @@ public class Player {
                         return stack;
                     }
                     if (Combinations.is3OfAKind(myCardList, communityCards)) {
-                        return stack;
+                        return currentBuyIn + 370;
                     }
                     return 0;
                 }
