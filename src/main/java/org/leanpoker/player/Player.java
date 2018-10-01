@@ -35,8 +35,11 @@ public class Player {
                 String CommunityCardSuit = communityCardsJson.get(i).getAsJsonObject().get("suit").getAsString();
                 communityCards.add(new Card(CommunityCardSuit, CommunityCardRank));
             }
+            if (firstCard.getValue() > 11 || secondCard.getValue() > 11) {
+                return stack;
+            }
             System.err.println("communitycards: " + communityCards.toString());
-            return stack;
+            return jsonObject.get("current_buy_in").getAsInt();
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println(e);
