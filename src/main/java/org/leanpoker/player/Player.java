@@ -33,7 +33,7 @@ public class Player {
             for (int i = 0; i < communityCardsJson.size() ; i++) {
                 String CommunityCardRank = communityCardsJson.get(i).getAsJsonObject().get("rank").getAsString();
                 String CommunityCardSuit = communityCardsJson.get(i).getAsJsonObject().get("suit").getAsString();
-                communityCards.add(new Card(CommunityCardRank, CommunityCardSuit));
+                communityCards.add(new Card(CommunityCardSuit, CommunityCardRank));
             }
             System.err.println("communitycards: " + communityCards.toString());
             return stack;
