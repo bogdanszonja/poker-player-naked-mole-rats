@@ -1,9 +1,11 @@
 package org.leanpoker.player;
 
+import com.codecool.leanpoker.Card;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -22,20 +24,21 @@ public class Player {
             int stack = players.get(2).getAsJsonObject().get("stack").getAsInt();
             System.err.println("stack: " + stack);
             JsonArray myCards = players.get(2).getAsJsonObject().get("hole_cards").getAsJsonArray();
-            String firstCardRank = myCards.get(0).getAsJsonObject().get("rank").getAsString();
-            String firstCardSuit = myCards.get(0).getAsJsonObject().get("suit").getAsString();
-            String secondCardRank = myCards.get(1).getAsJsonObject().get("rank").getAsString();
-            String secondCardSuit = myCards.get(1).getAsJsonObject().get("suit").getAsString();
-            System.err.println("first card: " + firstCardRank + " " + firstCardSuit + "second card: " + secondCardRank + " " + secondCardSuit);
+            Card firstCard = new Card(myCards.get(0).getAsJsonObject().get("suit").getAsString(), myCards.get(0).getAsJsonObject().get("rank").getAsString());
+            Card secondCard = new Card(myCards.get(1).getAsJsonObject().get("suit").getAsString(), myCards.get(1).getAsJsonObject().get("rank").getAsString());
 
-            JsonArray communityCards = jsonObject.get("community_cards").getAsJsonArray();
+            JsonArray communityCardsJson = jsonObject.get("community_cards").getAsJsonArray();
+            List<Card> communityCards = new ArrayList<>();
             System.err.println("round = " + communityCards.size());
             if (communityCards.size() == 0) {
                 return jsonObject.get("current_buy_in").getAsInt();
-            } else if (firstCardRank.equals(secondCardRank)) {
-                return stack/2;
             }
-            String firstCommunityCard = communityCards.get(0).getAsJsonObject().get("rank").getAsString();
+            for (int i = 0; i < communityCardsJson.size() ; i++) {
+                String CommunityCardRank = communityCardsJson.get(i).getAsJsonObject().get("rank").getAsString();
+                String CommunityCardSuit = communityCardsJson.get(i).getAsJsonObject().get("suit").getAsString();
+                communityCards.add(new Card(CommunityCardRank, CommunityCardSuit));
+            }
+            System.err.println(communityCards.toString());
             return stack;
         } catch (Exception e) {
             e.printStackTrace();
