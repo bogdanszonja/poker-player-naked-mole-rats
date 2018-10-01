@@ -16,8 +16,8 @@ public class Card {
     }
 
 
-    public boolean pairInHand(Card card1, Card card2) {
-        return card1.value == card2.value;
+    public boolean pairInHand(Card card) {
+        return this.value == card.value;
     }
 
     public Suit getSuit() {
