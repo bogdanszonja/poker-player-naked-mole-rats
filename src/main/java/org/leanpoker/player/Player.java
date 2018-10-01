@@ -1,14 +1,12 @@
 package org.leanpoker.player;
 
 import com.codecool.leanpoker.Card;
+import com.codecool.leanpoker.Combinations;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class Player {
 
@@ -41,13 +39,14 @@ public class Player {
                     }
                     return currentBuyIn;
                 } else if (communityCards.size() == 3) {
-                    if (communityCards.get(0).getValue() == firstCard.getValue() || communityCards.get(0).getValue() == secondCard.getValue()
-                            || communityCards.get(1).getValue() == firstCard.getValue() || communityCards.get(1).getValue() == secondCard.getValue() ||
-                            communityCards.get(2).getValue() == firstCard.getValue() || communityCards.get(2).getValue() == secondCard.getValue()) {
+                    if (Combinations.pairAt3Cards(Arrays.asList(firstCard, secondCard), communityCards)) {
                         return currentBuyIn + 50;
                     }
+                    if (currentBuyIn < stack - 1000) {
+                        return currentBuyIn;
+                    }
                 } else if (communityCards.size() == 4) {
-                    if (communityCards.get(3).getValue() == firstCard.getValue() || communityCards.get(3).getValue() == secondCard.getValue()) {
+                    if (Combinations.pairAt3Cards(Arrays.asList(firstCard, secondCard), communityCards)) {
                         return currentBuyIn + 100;
                     }
                     return currentBuyIn;
