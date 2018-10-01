@@ -6,7 +6,7 @@ public enum Rank {
     K,
     A;
 
-    public int getValue(Rank rank) {
+    public static int getValue(Rank rank) {
         return rank.ordinal() + 11;
     }
 }
