@@ -21,4 +21,15 @@ public class Combinations {
         return false;
     }
 
+    public static boolean is3OfAKind(List<Card> myCards, List<Card> cardsOnDeck) {
+        for (Card cardDeck : cardsOnDeck) {
+            if (isTheSameRank(myCards.get(0), myCards.get(1)) && isTheSameRank(myCards.get(0), cardDeck) ||
+                    isTheSameRank(myCards.get(0), myCards.get(1)) && isTheSameRank(myCards.get(1), cardDeck)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return false;
+    }
 }
