@@ -17,9 +17,9 @@ public class Player {
         JsonObject jsonObject = request.getAsJsonObject();
 
         int money = jsonObject.get("stack").getAsInt();
-//        Random random = new Random();
+        Random random = new Random();
 
-        return jsonObject.get("current_buy_in").getAsInt();
+        return random.nextInt(500);
     }
 
     public static void showdown(JsonElement game) {
