@@ -9,7 +9,7 @@ public class Combinations {
     }
 
 
-    public static boolean pairAt3Cards(List<Card> myCards, List<Card> cardsOnDeck) {
+    public static boolean onePair(List<Card> myCards, List<Card> cardsOnDeck) {
         for (Card cardHand : myCards) {
             for (Card cardDeck : cardsOnDeck) {
                 if (Combinations.isTheSameRank(cardHand, cardDeck)) {
@@ -21,7 +21,7 @@ public class Combinations {
         return false;
     }
 
-    public static boolean morePairAt3Cards(List<Card> myCards, List<Card> cardsOnDeck) {
+    public static boolean twoPairs(List<Card> myCards, List<Card> cardsOnDeck) {
         if (Combinations.isTheSameRank(myCards.get(0), myCards.get(1))) {
             return false;
         }

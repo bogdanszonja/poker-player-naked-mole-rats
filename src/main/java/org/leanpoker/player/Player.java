@@ -40,10 +40,10 @@ public class Player {
                     }
                     return currentBuyIn;
                 } else if (communityCards.size() == 3) {
-                    if (Combinations.pairAt3Cards(myCardList, communityCards)) {
+                    if (Combinations.onePair(myCardList, communityCards)) {
                         return currentBuyIn + 50;
                     }
-                    if (Combinations.morePairAt3Cards(myCardList, communityCards)) {
+                    if (Combinations.twoPairs(myCardList, communityCards)) {
                         return currentBuyIn + 200;
                     }
                     if (Combinations.is3OfAKind(myCardList, communityCards)) {
@@ -55,10 +55,10 @@ public class Player {
                         return 0;
                     }
                 } else if (communityCards.size() == 4) {
-                    if (Combinations.pairAt3Cards(myCardList, communityCards)) {
+                    if (Combinations.onePair(myCardList, communityCards)) {
                         return currentBuyIn + 100;
                     }
-                    if (Combinations.morePairAt3Cards(myCardList, communityCards)) {
+                    if (Combinations.twoPairs(myCardList, communityCards)) {
                         return currentBuyIn + 300;
                     }
                     if (Combinations.is3OfAKind(myCardList, communityCards)) {
@@ -66,7 +66,7 @@ public class Player {
                     }
                     return 0;
                 } else {
-                    if (Combinations.morePairAt3Cards(myCardList, communityCards)) {
+                    if (Combinations.twoPairs(myCardList, communityCards)) {
                         return currentBuyIn + 350;
                     }
                     if (Combinations.is3OfAKind(myCardList, communityCards)) {
