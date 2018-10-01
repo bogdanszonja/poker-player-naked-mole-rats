@@ -18,7 +18,9 @@ public class Player {
         int money = jsonObject.get("stack").getAsInt();
         Random random = new Random();
 
-        return random.nextInt(money/2);
+
+
+        return random.nextInt(5);
 
     }
 
