@@ -17,11 +17,11 @@ public class Player {
         JsonObject jsonObject = request.getAsJsonObject();
 
         Random random = new Random();
-        JsonArray players = jsonObject.get("players").getAsJsonArray();
-        int stack = players.get(4).getAsInt();
-        System.out.println("stack " + stack);
+//        JsonArray players = jsonObject.get("players").getAsJsonArray();
+//        players
+//        int stack = players.get(4).getAsInt();
 
-        return random.nextInt(500);
+        return random.nextInt(1000);
     }
 
     public static void showdown(JsonElement game) {
