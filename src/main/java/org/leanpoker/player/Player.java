@@ -37,4 +37,22 @@ public class Player {
 
     public static void showdown(JsonElement game) {
     }
+
+    private enum Rank {
+        J,
+        Q,
+        K,
+        A;
+
+       public int getValue(Rank rank) {
+           return rank.ordinal() + 11;
+       }
+    }
+
+    private enum Suit {
+        HEARTS,
+        SPADES,
+        CLUBS,
+        DIAMONDS
+    }
 }
