@@ -33,7 +33,7 @@ public class Player {
                 String CommunityCardSuit = communityCardsJson.get(i).getAsJsonObject().get("suit").getAsString();
                 communityCards.add(new Card(CommunityCardSuit, CommunityCardRank));
             }
-            if (firstCard.getValue() > 11 || secondCard.getValue() > 11) {
+            if (firstCard.getValue() > 11 || secondCard.getValue() > 11 || firstCard.pairInHand(secondCard)) {
                 return stack;
             }
             System.err.println("communitycards: " + communityCards.toString());
