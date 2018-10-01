@@ -20,7 +20,7 @@ public class Player {
         try {
             JsonArray players = jsonObject.get("players").getAsJsonArray();
             int stack = players.get(2).getAsJsonObject().get("stack").getAsInt();
-            System.out.println("stack: " + stack);
+            System.err.println("stack: " + stack);
         } catch (Exception e) {
             e.printStackTrace();
         }
