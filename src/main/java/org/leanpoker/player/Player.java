@@ -34,7 +34,7 @@ public class Player {
                 communityCards.add(new Card(CommunityCardSuit, CommunityCardRank));
             }
             if (firstCard.getValue() > 11 || secondCard.getValue() > 11 || firstCard.pairInHand(secondCard)) {
-                return stack;
+                return currentBuyIn;
             } else if (firstCard.getSuit().equals(secondCard.getSuit())) {
                 return currentBuyIn;
             }
