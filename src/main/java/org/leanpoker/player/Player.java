@@ -1,19 +1,24 @@
 package org.leanpoker.player;
 
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
 public class Player {
 
-    static final String VERSION = "1.0";
+    static final String VERSION = "0.1";
 
     public static int betRequest(JsonElement request) {
 
+        JsonObject jsonObject = request.getAsJsonObject();
 
-        Random random = new Random();
-        return random.nextInt(50);
+        int money = jsonObject.get("stack").getAsInt();
+
+        return money / 2;
+
     }
 
     public static void showdown(JsonElement game) {
