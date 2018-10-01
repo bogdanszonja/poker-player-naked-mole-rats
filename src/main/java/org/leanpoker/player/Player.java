@@ -33,15 +33,26 @@ public class Player {
                 String CommunityCardSuit = communityCardsJson.get(i).getAsJsonObject().get("suit").getAsString();
                 communityCards.add(new Card(CommunityCardSuit, CommunityCardRank));
             }
-            if (firstCard.getValue() > 11 || secondCard.getValue() > 11 || firstCard.pairInHand(secondCard) && communityCards.size() == 0) {
-                if (currentBuyIn > 800) {
+
+            if (communityCards.size() == 0) {
+                if (firstCard.getValue() > 11 || secondCard.getValue() > 11 || firstCard.pairInHand(secondCard)) {
+                    if (currentBuyIn > 800) {
+                        return 0;
+                    }
+                    return currentBuyIn;
+                } else if (communityCards.size() == 3) {
+                    if (communityCards.get(0).getValue() == firstCard.getValue() || communityCards.get(0).getValue() == secondCard.getValue()
+                            || communityCards.get(1).getValue() == firstCard.getValue() || communityCards.get(1).getValue() == secondCard.getValue() ||
+                            communityCards.get(2).getValue() == firstCard.getValue() || communityCards.get(2).getValue() == secondCard.getValue()) {
+                        return currentBuyIn + 50;
+                    }
+                } else if (communityCards.size() == 4) {
+                    return 0;
+                } else {
                     return 0;
                 }
-                return currentBuyIn;
-            } else if (firstCard.getSuit().equals(secondCard.getSuit())) {
-                return currentBuyIn;
+
             }
-            System.err.println("communitycards: " + communityCards.toString());
             return 0;
         } catch (Exception e) {
             e.printStackTrace();
