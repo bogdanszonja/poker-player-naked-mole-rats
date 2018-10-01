@@ -35,7 +35,7 @@ public class Player {
             }
 
             if (communityCards.size() == 0) {
-                if (firstCard.getValue() > 11 || secondCard.getValue() > 11 || firstCard.pairInHand(secondCard)) {
+                if (firstCard.getValue() > 11 || secondCard.getValue() > 11 || firstCard.pairInHand(secondCard) || firstCard.sortInHand(secondCard)) {
                     if (currentBuyIn > 800) {
                         return 0;
                     }
