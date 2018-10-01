@@ -29,6 +29,7 @@ public class Player {
             System.err.println("first card: " + firstCardRank + " " + firstCardSuit + "second card: " + secondCardRank + " " + secondCardSuit);
 
             JsonArray communityCards = jsonObject.get("community_cards").getAsJsonArray();
+            System.err.println("round = " + communityCards.size());
             if (communityCards.size() == 0) {
                 return jsonObject.get("current_buy_in").getAsInt();
             }
