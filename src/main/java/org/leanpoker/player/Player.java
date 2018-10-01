@@ -7,12 +7,13 @@ import java.util.Random;
 
 public class Player {
 
-    static final String VERSION = "0.1";
+    static final String VERSION = "1.0";
 
     public static int betRequest(JsonElement request) {
 
+
         Random random = new Random();
-        return random.nextInt(5);
+        return random.nextInt(50);
     }
 
     public static void showdown(JsonElement game) {
