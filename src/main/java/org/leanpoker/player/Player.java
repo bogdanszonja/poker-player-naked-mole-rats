@@ -22,14 +22,11 @@ public class Player {
         try {
             JsonArray players = jsonObject.get("players").getAsJsonArray();
             int stack = players.get(2).getAsJsonObject().get("stack").getAsInt();
-            System.err.println("stack: " + stack);
             JsonArray myCards = players.get(2).getAsJsonObject().get("hole_cards").getAsJsonArray();
             Card firstCard = new Card(myCards.get(0).getAsJsonObject().get("suit").getAsString(), myCards.get(0).getAsJsonObject().get("rank").getAsString());
             Card secondCard = new Card(myCards.get(1).getAsJsonObject().get("suit").getAsString(), myCards.get(1).getAsJsonObject().get("rank").getAsString());
-
             JsonArray communityCardsJson = jsonObject.get("community_cards").getAsJsonArray();
             List<Card> communityCards = new ArrayList<>();
-            System.err.println("round = " + communityCards.size());
             if (communityCards.size() == 0) {
                 return jsonObject.get("current_buy_in").getAsInt();
             }
@@ -38,7 +35,7 @@ public class Player {
                 String CommunityCardSuit = communityCardsJson.get(i).getAsJsonObject().get("suit").getAsString();
                 communityCards.add(new Card(CommunityCardRank, CommunityCardSuit));
             }
-            System.err.println(communityCards.toString());
+            System.err.println("communitycards: " + communityCards.toString());
             return stack;
         } catch (Exception e) {
             e.printStackTrace();
