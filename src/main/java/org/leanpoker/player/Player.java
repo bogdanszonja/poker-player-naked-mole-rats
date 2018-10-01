@@ -17,9 +17,9 @@ public class Player {
         JsonObject jsonObject = request.getAsJsonObject();
 
         Random random = new Random();
-//        JsonArray players = jsonObject.get("players").getAsJsonArray();
-//        players
-//        int stack = players.get(4).getAsInt();
+        JsonArray players = jsonObject.get("players").getAsJsonArray();
+        int stack = players.getAsJsonObject().get("stack").getAsInt();
+        System.out.println("stack: " + stack);
 
         return random.nextInt(1000);
     }
