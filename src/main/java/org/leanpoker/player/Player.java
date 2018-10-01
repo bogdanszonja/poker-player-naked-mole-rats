@@ -51,7 +51,11 @@ public class Player {
                     }
                     if (currentBuyIn < stack - 1000) {
                         return currentBuyIn;
-                    } else {
+                    }
+                    if (Combinations.isTheSameColor(myCardList, communityCards)) {
+                        return stack;
+                    }
+                    else {
                         return 0;
                     }
                 } else if (communityCards.size() == 4) {
@@ -64,10 +68,16 @@ public class Player {
                     if (Combinations.is3OfAKind(myCardList, communityCards)) {
                         return currentBuyIn + 350;
                     }
+                    if (Combinations.isTheSameColor(myCardList, communityCards)) {
+                        return stack;
+                    }
                     return 0;
                 } else {
                     if (Combinations.twoPairs(myCardList, communityCards)) {
                         return currentBuyIn + 350;
+                    }
+                    if (Combinations.isTheSameColor(myCardList, communityCards)) {
+                        return stack;
                     }
                     if (Combinations.is3OfAKind(myCardList, communityCards)) {
                         return currentBuyIn + 380;
