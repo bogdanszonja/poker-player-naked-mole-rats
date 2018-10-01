@@ -9,15 +9,16 @@ import java.util.Random;
 
 public class Player {
 
-    static final String VERSION = "0.1";
+    static final String VERSION = "1.1";
 
     public static int betRequest(JsonElement request) {
 
         JsonObject jsonObject = request.getAsJsonObject();
 
         int money = jsonObject.get("stack").getAsInt();
+        Random random = new Random();
 
-        return money / 2;
+        return random.nextInt(money/2);
 
     }
 
