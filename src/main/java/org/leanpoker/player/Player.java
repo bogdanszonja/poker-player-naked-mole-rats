@@ -37,14 +37,14 @@ public class Player {
                 if (firstCard.getValue() >= 12 && secondCard.getValue() >= 12 || firstCard.pairInHand(secondCard) && firstCard.getValue() >= 9) {
                     return stack;
                 }
-                if (firstCard.getValue() > 7 && secondCard.getValue() > 7) {
-                    if (currentBuyIn > 450) {
+                if (firstCard.getValue() > 11 || secondCard.getValue() > 11 || firstCard.pairInHand(secondCard) || firstCard.sortInHand(secondCard)) {
+                    if (currentBuyIn > 850) {
                         return 0;
                     }
                     return currentBuyIn;
                 }
-                if (firstCard.getValue() > 11 || secondCard.getValue() > 11 || firstCard.pairInHand(secondCard) || firstCard.sortInHand(secondCard)) {
-                    if (currentBuyIn > 850) {
+                if (firstCard.getValue() > 7 && secondCard.getValue() > 7) {
+                    if (currentBuyIn > 450) {
                         return 0;
                     }
                     return currentBuyIn;
