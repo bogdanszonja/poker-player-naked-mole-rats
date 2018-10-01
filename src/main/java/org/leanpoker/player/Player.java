@@ -45,6 +45,9 @@ public class Player {
                         return 0;
                     }
                     return currentBuyIn;
+                }
+                if (firstCard.getValue() > 12 && secondCard.getValue() > 12) {
+                    return currentBuyIn;
                 } else if (communityCards.size() == 3) {
                     if (Combinations.onePair(myCardList, communityCards)) {
                         return currentBuyIn + 50;
