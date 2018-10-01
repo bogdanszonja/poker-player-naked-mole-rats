@@ -47,7 +47,10 @@ public class Player {
                         return currentBuyIn + 50;
                     }
                 } else if (communityCards.size() == 4) {
-                    return 0;
+                    if (communityCards.get(3).getValue() == firstCard.getValue() || communityCards.get(3).getValue() == secondCard.getValue()) {
+                        return currentBuyIn + 100;
+                    }
+                    return currentBuyIn;
                 } else {
                     return 0;
                 }
