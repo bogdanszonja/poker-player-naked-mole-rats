@@ -9,7 +9,7 @@ public class Player {
     static final String VERSION = "0.1";
 
     public static int betRequest(JsonElement request) {
-        return 0;
+        return 2;
     }
 
     public static void showdown(JsonElement game) {
