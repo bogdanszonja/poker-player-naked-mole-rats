@@ -17,10 +17,13 @@ public class Player {
         JsonObject jsonObject = request.getAsJsonObject();
 
         Random random = new Random();
-        JsonArray players = jsonObject.get("players").getAsJsonArray();
-        int stack = players.get(2).getAsJsonObject().get("stack").getAsInt();
-        System.out.println("stack: " + stack);
-
+        try {
+            JsonArray players = jsonObject.get("players").getAsJsonArray();
+            int stack = players.get(2).getAsJsonObject().get("stack").getAsInt();
+            System.out.println("stack: " + stack);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         return random.nextInt(1000);
     }
