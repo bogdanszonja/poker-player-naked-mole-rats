@@ -34,6 +34,12 @@ public class Player {
 
             List<Card> myCardList = Arrays.asList(firstCard, secondCard);
             if (communityCards.size() == 0) {
+                if (firstCard.getValue() > 7 && secondCard.getValue() > 7) {
+                    if (currentBuyIn > 400) {
+                        return 0;
+                    }
+                    return currentBuyIn;
+                }
                 if (firstCard.getValue() > 11 || secondCard.getValue() > 11 || firstCard.pairInHand(secondCard) || firstCard.sortInHand(secondCard)) {
                     if (currentBuyIn > 800) {
                         return 0;
