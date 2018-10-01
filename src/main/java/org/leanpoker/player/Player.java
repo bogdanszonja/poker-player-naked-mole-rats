@@ -1,6 +1,7 @@
 package org.leanpoker.player;
 
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 
 import java.util.Map;
 import java.util.Random;
@@ -11,8 +12,13 @@ public class Player {
 
     public static int betRequest(JsonElement request) {
 
+        JsonObject jsonObject = request.getAsJsonObject();
+
+        int money = jsonObject.get("stack").getAsInt();
+
         Random random = new Random();
-        return random.nextInt(5);
+
+        return money;
     }
 
     public static void showdown(JsonElement game) {
