@@ -21,7 +21,7 @@ public class Card {
     }
 
     public boolean sortInHand(Card card) {
-        return this.value >= 6 && this.value + 1 == card.getValue() || this.value - 1 == card.getValue();
+        return this.value >= 6 && (this.value + 1 == card.getValue() || this.value - 1 == card.getValue());
     }
 
 
