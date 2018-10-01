@@ -34,6 +34,9 @@ public class Player {
 
             List<Card> myCardList = Arrays.asList(firstCard, secondCard);
             if (communityCards.size() == 0) {
+                if (firstCard.getValue() >= 12 && secondCard.getValue() >= 12 || firstCard.pairInHand(secondCard) && firstCard.getValue() >= 9) {
+                    return stack;
+                }
                 if (firstCard.getValue() > 7 && secondCard.getValue() > 7) {
                     if (currentBuyIn > 450) {
                         return 0;
@@ -45,9 +48,6 @@ public class Player {
                         return 0;
                     }
                     return currentBuyIn;
-                }
-                if (firstCard.getValue() >= 12 && secondCard.getValue() >= 12 || firstCard.pairInHand(secondCard) && firstCard.getValue() >= 9) {
-                    return stack;
                 } else if (communityCards.size() == 3) {
                     if (Combinations.onePair(myCardList, communityCards)) {
                         return currentBuyIn + 75;
