@@ -26,12 +26,14 @@ public class Player {
             String firstCardSuit = myCards.get(0).getAsJsonObject().get("suit").getAsString();
             String secondCardRank = myCards.get(1).getAsJsonObject().get("rank").getAsString();
             String secondCardSuit = myCards.get(1).getAsJsonObject().get("suit").getAsString();
+            int currentBuyIn = jsonObject.get("current_buy_in").getAsInt();
+
             System.err.println("first card: " + firstCardRank + " " + firstCardSuit + "second card: " + secondCardRank + " " + secondCardSuit);
 
             JsonArray communityCards = jsonObject.get("community_cards").getAsJsonArray();
             System.err.println("round = " + communityCards.size());
             if (communityCards.size() == 0) {
-                return jsonObject.get("current_buy_in").getAsInt();
+                return currentBuyIn;
             }
             String firstCommunityCard = communityCards.get(0).getAsJsonObject().get("rank").getAsString();
             return stack;
