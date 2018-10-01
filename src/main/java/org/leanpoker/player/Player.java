@@ -27,13 +27,13 @@ public class Player {
             Card secondCard = new Card(myCards.get(1).getAsJsonObject().get("suit").getAsString(), myCards.get(1).getAsJsonObject().get("rank").getAsString());
             JsonArray communityCardsJson = jsonObject.get("community_cards").getAsJsonArray();
             List<Card> communityCards = new ArrayList<>();
-            if (communityCards.size() == 0) {
-                return jsonObject.get("current_buy_in").getAsInt();
-            }
+//            if (communityCardsJson.size() == 0) {
+//                return jsonObject.get("current_buy_in").getAsInt();
+//            }
             for (int i = 0; i < communityCardsJson.size() ; i++) {
                 String CommunityCardRank = communityCardsJson.get(i).getAsJsonObject().get("rank").getAsString();
                 String CommunityCardSuit = communityCardsJson.get(i).getAsJsonObject().get("suit").getAsString();
-                communityCards.add(new Card(CommunityCardRank, CommunityCardSuit));
+                communityCards.add(new Card(CommunityCardSuit, CommunityCardRank));
             }
             System.err.println("communitycards: " + communityCards.toString());
             return stack;
