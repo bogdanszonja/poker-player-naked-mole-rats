@@ -58,9 +58,6 @@ public class Player {
                     if (Combinations.is3OfAKind(myCardList, communityCards)) {
                         return currentBuyIn + 300;
                     }
-                    if (currentBuyIn < stack - 1000) {
-                        return currentBuyIn;
-                    }
                     if (Combinations.isTheSameColor(myCardList, communityCards)) {
                         return stack;
                     }
