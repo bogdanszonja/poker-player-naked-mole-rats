@@ -20,6 +20,11 @@ public class Card {
         return this.value == card.value;
     }
 
+    public boolean sortInHand(Card card) {
+        return this.value >= 6 && this.value + 1 == card.getValue() || this.value - 1 == card.getValue();
+    }
+
+
     public Suit getSuit() {
         return suit;
     }
