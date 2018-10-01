@@ -6,12 +6,12 @@ public class Card {
     private int value;
 
 
-    public Card(String suit, String value) {
-        this.suit = Suit.valueOf(suit);
+    public Card(String suit, String rank) {
+        this.suit = Suit.valueOf(suit.toUpperCase());
         try {
-            this.value = Integer.parseInt(value);
+            this.value = Integer.parseInt(rank);
         } catch (Exception e) {
-            this.value = Rank.getValue(Rank.valueOf(value));
+            this.value = Rank.getValue(Rank.valueOf(rank));
         }
     }
 
