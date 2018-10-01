@@ -24,7 +24,9 @@ public class Player {
             JsonArray myCards = players.get(2).getAsJsonObject().get("hole_cards").getAsJsonArray();
             String firstCardRank = myCards.get(0).getAsJsonObject().get("rank").getAsString();
             String firstCardSuit = myCards.get(0).getAsJsonObject().get("suit").getAsString();
-            System.err.println(firstCardRank + "   " + firstCardSuit);
+            String secondCardRank = myCards.get(1).getAsJsonObject().get("rank").getAsString();
+            String secondCardSuit = myCards.get(1).getAsJsonObject().get("suit").getAsString();
+            System.err.println("first card: " + firstCardRank + " " + firstCardSuit + "second card: " + secondCardRank + " " + secondCardSuit);
             return stack;
         } catch (Exception e) {
             e.printStackTrace();
