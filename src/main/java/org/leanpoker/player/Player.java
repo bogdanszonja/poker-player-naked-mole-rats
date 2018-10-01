@@ -33,9 +33,12 @@ public class Player {
                 String CommunityCardSuit = communityCardsJson.get(i).getAsJsonObject().get("suit").getAsString();
                 communityCards.add(new Card(CommunityCardSuit, CommunityCardRank));
             }
-            if (firstCard.getValue() > 11 || secondCard.getValue() > 11 || firstCard.pairInHand(secondCard)) {
-                return stack;
-            } else if (firstCard.getSuit().equals(secondCard.getSuit()) || firstCard.sortInHand(secondCard)) {
+            if (firstCard.getValue() > 11 || secondCard.getValue() > 11 || firstCard.pairInHand(secondCard) && communityCards.size() == 0) {
+                if (currentBuyIn > 800) {
+                    return 0;
+                }
+                return currentBuyIn;
+            } else if (firstCard.getSuit().equals(secondCard.getSuit())) {
                 return currentBuyIn;
             }
             System.err.println("communitycards: " + communityCards.toString());
