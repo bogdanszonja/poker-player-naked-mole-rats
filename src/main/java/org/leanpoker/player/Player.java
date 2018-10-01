@@ -16,8 +16,8 @@ public class Player {
 
         JsonObject jsonObject = request.getAsJsonObject();
 
-        int money = jsonObject.get("stack").getAsInt();
-        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA: " + money);
+//        int money = jsonObject.get("stack").getAsInt();
+//        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA: " + money);
         Random random = new Random();
 
         return random.nextInt(500);
