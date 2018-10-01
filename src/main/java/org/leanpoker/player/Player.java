@@ -23,6 +23,7 @@ public class Player {
             System.err.println("stack: " + stack);
         } catch (Exception e) {
             e.printStackTrace();
+            System.err.println(e);
         }
 
         return random.nextInt(1000);
