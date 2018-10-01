@@ -35,13 +35,13 @@ public class Player {
             List<Card> myCardList = Arrays.asList(firstCard, secondCard);
             if (communityCards.size() == 0) {
                 if (firstCard.getValue() > 7 && secondCard.getValue() > 7) {
-                    if (currentBuyIn > 400) {
+                    if (currentBuyIn > 450) {
                         return 0;
                     }
                     return currentBuyIn;
                 }
                 if (firstCard.getValue() > 11 || secondCard.getValue() > 11 || firstCard.pairInHand(secondCard) || firstCard.sortInHand(secondCard)) {
-                    if (currentBuyIn > 800) {
+                    if (currentBuyIn > 850) {
                         return 0;
                     }
                     return currentBuyIn;
@@ -50,13 +50,13 @@ public class Player {
                     return stack;
                 } else if (communityCards.size() == 3) {
                     if (Combinations.onePair(myCardList, communityCards)) {
-                        return currentBuyIn + 50;
+                        return currentBuyIn + 75;
                     }
                     if (Combinations.twoPairs(myCardList, communityCards)) {
-                        return currentBuyIn + 200;
+                        return currentBuyIn + 170;
                     }
                     if (Combinations.is3OfAKind(myCardList, communityCards)) {
-                        return currentBuyIn + 300;
+                        return currentBuyIn + 280;
                     }
                     if (Combinations.isTheSameColor(myCardList, communityCards)) {
                         return stack;
@@ -66,13 +66,13 @@ public class Player {
                     }
                 } else if (communityCards.size() == 4) {
                     if (Combinations.onePair(myCardList, communityCards)) {
-                        return currentBuyIn + 100;
+                        return currentBuyIn + 120;
                     }
                     if (Combinations.twoPairs(myCardList, communityCards)) {
-                        return currentBuyIn + 300;
+                        return currentBuyIn + 310;
                     }
                     if (Combinations.is3OfAKind(myCardList, communityCards)) {
-                        return currentBuyIn + 350;
+                        return currentBuyIn + 360;
                     }
                     if (Combinations.isTheSameColor(myCardList, communityCards)) {
                         return stack;
@@ -80,16 +80,16 @@ public class Player {
                     return 0;
                 } else {
                     if (Combinations.onePair(myCardList, communityCards) && firstCard.getValue() >= 9) {
-                        return currentBuyIn + 50;
+                        return currentBuyIn + 55;
                     }
                     if (Combinations.twoPairs(myCardList, communityCards)) {
-                        return currentBuyIn + 350;
+                        return currentBuyIn + 355;
                     }
                     if (Combinations.isTheSameColor(myCardList, communityCards)) {
                         return stack;
                     }
                     if (Combinations.is3OfAKind(myCardList, communityCards)) {
-                        return currentBuyIn + 380;
+                        return currentBuyIn + 390;
                     }
                     return 0;
                 }
