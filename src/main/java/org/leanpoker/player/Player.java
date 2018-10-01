@@ -32,6 +32,7 @@ public class Player {
                 communityCards.add(new Card(CommunityCardSuit, CommunityCardRank));
             }
 
+            List<Card> myCardList = Arrays.asList(firstCard, secondCard);
             if (communityCards.size() == 0) {
                 if (firstCard.getValue() > 11 || secondCard.getValue() > 11 || firstCard.pairInHand(secondCard) || firstCard.sortInHand(secondCard)) {
                     if (currentBuyIn > 800) {
@@ -39,13 +40,13 @@ public class Player {
                     }
                     return currentBuyIn;
                 } else if (communityCards.size() == 3) {
-                    if (Combinations.pairAt3Cards(Arrays.asList(firstCard, secondCard), communityCards)) {
+                    if (Combinations.onePair(myCardList, communityCards)) {
                         return currentBuyIn + 50;
                     }
-                    if (Combinations.morePairAt3Cards(Arrays.asList(firstCard, secondCard), communityCards)) {
+                    if (Combinations.twoPairs(myCardList, communityCards)) {
                         return currentBuyIn + 200;
                     }
-                    if (Combinations.is3OfAKind(Arrays.asList(firstCard, secondCard), communityCards)) {
+                    if (Combinations.is3OfAKind(myCardList, communityCards)) {
                         return currentBuyIn + 300;
                     }
                     if (currentBuyIn < stack - 1000) {
@@ -54,12 +55,24 @@ public class Player {
                         return 0;
                     }
                 } else if (communityCards.size() == 4) {
-                    if (Combinations.pairAt3Cards(Arrays.asList(firstCard, secondCard), communityCards)) {
+                    if (Combinations.onePair(myCardList, communityCards)) {
                         return currentBuyIn + 100;
                     }
-                    return currentBuyIn;
+                    if (Combinations.twoPairs(myCardList, communityCards)) {
+                        return currentBuyIn + 300;
+                    }
+                    if (Combinations.is3OfAKind(myCardList, communityCards)) {
+                        return currentBuyIn + 350;
+                    }
+                    return 0;
                 } else {
-                    return currentBuyIn;
+                    if (Combinations.twoPairs(myCardList, communityCards)) {
+                        return currentBuyIn + 350;
+                    }
+                    if (Combinations.is3OfAKind(myCardList, communityCards)) {
+                        return currentBuyIn + 380;
+                    }
+                    return 0;
                 }
 
             }
