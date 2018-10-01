@@ -35,7 +35,7 @@ public class Player {
             }
             if (firstCard.getValue() > 11 || secondCard.getValue() > 11 || firstCard.pairInHand(secondCard)) {
                 return stack;
-            } else if (firstCard.getSuit().equals(secondCard.getSuit())) {
+            } else if (firstCard.getSuit().equals(secondCard.getSuit()) || firstCard.sortInHand(secondCard)) {
                 return currentBuyIn;
             }
             System.err.println("communitycards: " + communityCards.toString());
