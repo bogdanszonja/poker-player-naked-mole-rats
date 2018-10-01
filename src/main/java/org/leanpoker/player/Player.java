@@ -79,6 +79,9 @@ public class Player {
                     }
                     return 0;
                 } else {
+                    if (Combinations.onePair(myCardList, communityCards) && firstCard.getValue() >= 9) {
+                        return currentBuyIn + 50;
+                    }
                     if (Combinations.twoPairs(myCardList, communityCards)) {
                         return currentBuyIn + 350;
                     }
