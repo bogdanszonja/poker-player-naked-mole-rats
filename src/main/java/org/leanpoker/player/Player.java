@@ -42,8 +42,16 @@ public class Player {
                     if (Combinations.pairAt3Cards(Arrays.asList(firstCard, secondCard), communityCards)) {
                         return currentBuyIn + 50;
                     }
+                    if (Combinations.morePairAt3Cards(Arrays.asList(firstCard, secondCard), communityCards)) {
+                        return currentBuyIn + 200;
+                    }
+                    if (Combinations.is3OfAKind(Arrays.asList(firstCard, secondCard), communityCards)) {
+                        return currentBuyIn + 300;
+                    }
                     if (currentBuyIn < stack - 1000) {
                         return currentBuyIn;
+                    } else {
+                        return 0;
                     }
                 } else if (communityCards.size() == 4) {
                     if (Combinations.pairAt3Cards(Arrays.asList(firstCard, secondCard), communityCards)) {
@@ -51,7 +59,7 @@ public class Player {
                     }
                     return currentBuyIn;
                 } else {
-                    return 0;
+                    return currentBuyIn;
                 }
 
             }
