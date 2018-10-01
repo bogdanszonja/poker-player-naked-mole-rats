@@ -21,13 +21,16 @@ public class Player {
             JsonArray players = jsonObject.get("players").getAsJsonArray();
             int stack = players.get(2).getAsJsonObject().get("stack").getAsInt();
             System.err.println("stack: " + stack);
+            JsonArray myCards = players.get(2).getAsJsonObject().get("hole_cards").getAsJsonArray();
+            String firstCardRank = myCards.get(0).getAsJsonObject().get("rank").getAsString();
+            String firstCardSuit = myCards.get(0).getAsJsonObject().get("suit").getAsString();
+            System.err.println(firstCardRank + "   " + firstCardSuit);
             return stack;
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println(e);
             return random.nextInt(1000);
         }
-
     }
 
     public static void showdown(JsonElement game) {
