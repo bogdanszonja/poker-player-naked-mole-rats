@@ -8,6 +8,8 @@ public class Combinations {
         return card1.getValue() == card2.getValue();
     }
 
+    public static boolean isTheSameColor(Card card1, Card card2) {return card1.getSuit() == card2.getSuit();}
+
 
     public static boolean pairAt3Cards(List<Card> myCards, List<Card> cardsOnDeck) {
         for (Card cardHand : myCards) {
@@ -44,6 +46,24 @@ public class Combinations {
         for (Card cardDeck : cardsOnDeck) {
             if (isTheSameRank(myCards.get(0), myCards.get(1)) && isTheSameRank(myCards.get(0), cardDeck) ||
                     isTheSameRank(myCards.get(0), myCards.get(1)) && isTheSameRank(myCards.get(1), cardDeck)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return false;
+    }
+
+    public static boolean isTheSameColor(List<Card> myCards, List<Card> cardsOnDeck) {
+        int numOfSameColors = 0;
+        if(isTheSameColor(myCards.get(0), myCards.get(1))) {
+            numOfSameColors = 2;
+            for(Card cardDeck: cardsOnDeck) {
+                if(isTheSameColor(myCards.get(0), cardDeck)) {
+                    numOfSameColors++;
+                }
+            }
+            if(numOfSameColors >= 5) {
                 return true;
             } else {
                 return false;
