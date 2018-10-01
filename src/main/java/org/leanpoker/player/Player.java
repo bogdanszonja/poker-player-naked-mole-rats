@@ -21,12 +21,13 @@ public class Player {
             JsonArray players = jsonObject.get("players").getAsJsonArray();
             int stack = players.get(2).getAsJsonObject().get("stack").getAsInt();
             System.err.println("stack: " + stack);
+            return stack;
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println(e);
+            return random.nextInt(1000);
         }
 
-        return random.nextInt(1000);
     }
 
     public static void showdown(JsonElement game) {
