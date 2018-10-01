@@ -26,10 +26,8 @@ public class Player {
             Card firstCard = new Card(myCards.get(0).getAsJsonObject().get("suit").getAsString(), myCards.get(0).getAsJsonObject().get("rank").getAsString());
             Card secondCard = new Card(myCards.get(1).getAsJsonObject().get("suit").getAsString(), myCards.get(1).getAsJsonObject().get("rank").getAsString());
             JsonArray communityCardsJson = jsonObject.get("community_cards").getAsJsonArray();
+            int currentBuyIn = jsonObject.get("current_buy_in").getAsInt();
             List<Card> communityCards = new ArrayList<>();
-//            if (communityCardsJson.size() == 0) {
-//                return jsonObject.get("current_buy_in").getAsInt();
-//            }
             for (int i = 0; i < communityCardsJson.size() ; i++) {
                 String CommunityCardRank = communityCardsJson.get(i).getAsJsonObject().get("rank").getAsString();
                 String CommunityCardSuit = communityCardsJson.get(i).getAsJsonObject().get("suit").getAsString();
@@ -39,7 +37,7 @@ public class Player {
                 return stack;
             }
             System.err.println("communitycards: " + communityCards.toString());
-            return jsonObject.get("current_buy_in").getAsInt();
+            return 0;
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println(e);
